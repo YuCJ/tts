@@ -1,0 +1,54 @@
+{
+  "name": "standard-js-template",
+  "version": "1.0.2",
+  "main": "lib/index.js",
+  "repository": "https://github.com/YuCJ/standard-js-template.git",
+  "author": "yucj <nakts0123@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "make dev",
+    "build": "make build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "make lint"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,css,md,html,htm}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "optionalDependencies": {
+    "commit-and-tag-version": "^12.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.23.9",
+    "@babel/core": "7.23.9",
+    "@babel/preset-env": "7.23.9",
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.2",
+    "babel-eslint": "10.0.1",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-config-standard": "12.0.0",
+    "eslint-plugin-babel": "5.3.0",
+    "eslint-plugin-import": "2.17.3",
+    "eslint-plugin-node": "9.1.0",
+    "eslint-plugin-promise": "4.1.1",
+    "eslint-plugin-standard": "4.0.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.2.1",
+    "prettier": "^2.8.8",
+    "rimraf": "^2.7.1"
+  }
+}
